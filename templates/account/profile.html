@@ -1,0 +1,85 @@
+{# Load the tag library #}
+{% load bootstrap4 %}
+{% load i18n %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+{% block extra_head %}
+    <!-- Tailwind -->
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <div class=" mx-auto ">
+
+{#        <a href="{% url 'jobs:jobList' %}">Look Joblist</a> |#}
+        <a href="{% url 'account_email' %}">Manage Email</a>  |
+        <a href="{% url 'account_change_password' %}">Change Password</a> |
+        <a href="{% url 'account_logout' %}">Logout</a>
+        </div>
+    {% endif %}
+
+    <div class=" max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-16">
+        <div class="px-6">
+            <div class="flex flex-wrap justify-center">
+                <div class="w-full flex justify-center">
+                    <div class="flex flex-wrap justify-center">
+                        {% if user.profile.profile_photo.url != None %}
+                        <img src="{{user.profile.profile_photo.url}}" class="shadow-xl align-middle border-none  -m-16 -ml-20 lg:-ml-16 max-w-[150px]"/>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+            <div class="w-full text-center mt-20">
+{#                <div class="flex justify-center lg:pt-4 pt-8 pb-0">#}
+{#                    <div class="p-3 text-center">#}
+{#                        <span class="text-xl font-bold block uppercase tracking-wide text-slate-700">3,360</span>#}
+{#                        <span class="text-sm text-slate-400">Photos</span>#}
+{#                    </div>#}
+{#                    <div class="p-3 text-center">#}
+{#                        <span class="text-xl font-bold block uppercase tracking-wide text-slate-700">2,454</span>#}
+{#                        <span class="text-sm text-slate-400">Followers</span>#}
+{#                    </div>#}
+{##}
+{#                    <div class="p-3 text-center">#}
+{#                        <span class="text-xl font-bold block uppercase tracking-wide text-slate-700">564</span>#}
+{#                        <span class="text-sm text-slate-400">Following</span>#}
+{#                    </div>#}
+{#                </div>#}
+            </div>
+            <div class="text-center mt-2">
+                <h3 class="text-2xl text-slate-700 font-bold leading-normal mb-1">{% trans "Welcome" %}! {{ user }}</h3>
+{#                <div class="text-xs mt-0 mb-2 text-slate-400 font-bold ">#}
+{#                    gender:{{ user.profile.gender }}#}
+{#                </div>#}
+            </div>
+            <div class="mt-6 py-6 border-t border-slate-200 text-center">
+                <div class="flex flex-wrap justify-center">
+                    <div class="w-full px-4">
+                        <p class="font-light leading-relaxed text-slate-600 mb-4">telephone:{{ user.profile.tel }}</p>
+                        <p class="font-light leading-relaxed text-slate-600 mb-4">gender:{{ user.profile.gender }}</p>
+                        <a href="{% url 'userprofile:profile_update' %}" class="font-normal text-slate-700 hover:text-slate-400">update</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer >
+        <div class="text-center p-4 fixed bottom-0 left-0 w-full">
+            <span>© 2021 Copyright:</span>
+            <a class="text-gray-600 font-semibold" href="">Hogwarts</a>
+        </div>
+    </footer>
+
+{% endblock %}
+

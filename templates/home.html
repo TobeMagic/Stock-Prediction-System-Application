@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load i18n static simpletags %}
+{% block title %}
+    股票预测系统
+{% endblock %}
+
+{% block load %}
+    {% load bootstrap4 %}
+
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+{% endblock %}
+
+{% block content %}
+
+    <!--header-->
+    <header>
+        <!-- Navbar -->
+
+        <!-- Background image -->
+        {#        <div class="relative overflow-hidden bg-no-repeat bg-cover" style="#}
+        {#    background-position: 50%;#}
+        {#    background-image: url({% static "banner.png" %});#}
+        {#    height: 350px;#}
+        {#  ">#}
+        {#            <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"#}
+        {#                 style="background-color: rgba(0, 0, 0, 0.99)">#}
+        {#                <div class="flex justify-center items-center h-full">#}
+        {#                    <div class="text-center text-white px-6 md:px-12">#}
+        {#                        <h2 class="text-3xl font-bold mb-8">{% translate 	 "Baby cry speech recognition system" %}</h2>#}
+        {#                        <p class="text-xl mb-12">{% translate 	 "speech recognition " %}</p>#}
+        {#                        <a href="#" class="bg-indigo-500 text-white py-4 px-12 rounded-full hover:bg-indigo-600">{% translate 	"Start" %}</a>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+        <div class="bg-gray-50 flex items-center">
+            <section class="w-full bg-cover bg-center py-60" style="background-image: url({% static "banner.png" %});">
+{#            <img class="h-auto" src="{% static "banner.png" %}">#}
+                <div class="container mx-auto text-center text-white">
+                    <h1 class="text-7xl font-medium mb-6 text-center">{% translate "股票预测系统" %}</h1>
+                    <p class="text-3xl mb-12 text-center text-white-500 p-4 ">{% translate "欢迎使用！我们为您提供一种新的方式来股票预测系统" %}</p>
+                    <a href="index"
+                       class="bg-indigo-500 text-white py-4 px-12 rounded-full hover:bg-indigo-600">{% translate "查看预测（我炒的是人生，不是股票）" %}</a>
+
+                </div>
+            </section>
+        </div>
+        <!-- Background image -->
+    </header>
+    {#<div class="h-screen bg-gray-50 flex items-center">#}
+    {#    <section class="w-full bg-cover bg-center py-32" style="background-image: url('https://source.unsplash.com/random');">#}
+    {#        <div class="container mx-auto text-center text-white">#}
+    {#            <h1 class="text-5xl font-medium mb-6">{% translate "Welcome to " %}</h1>#}
+    {##}
+    {#        </div>#}
+    {#    </section>#}
+    {#</div>#}
+    <article>
+{#        <div class=" p-10  m-10 rounded-2xl flex border-8">#}
+{#            <div class="container mx-auto text-center text-blue">#}
+{#                <h1 class="text-5xl font-medium mb-6 text-center">{% translate "Baby cry speech recognition system" %}</h1>#}
+{#                <p class="text-3l mb-12 text-center text-blue-300">{% translate "将您的婴儿的声音与我们数据库中的声音进行比较，预测婴儿是否和为什么在哭闹 在人工智能的帮助下，我们的算程能够以超过90％的准确度预测您的婴儿是否在哭闹，并且正确地标记90％以上处于疼痛时发出的哭声。" %}</p>#}
+{#                <a href="upload"#}
+{#                   class="bg-indigo-500 text-white py-4 px-12 rounded-full hover:bg-indigo-600">{% translate "Upload Your Audio to Start" %}</a>#}
+{#            </div>#}
+{#        </div>#}
+
+{#        <div class=" p-44  m-20 rounded-2xl flex ">#}
+{#            <div>#}
+{#                <h1 class="h1">项目介绍</h1>#}
+{#                <p class="grp-padding text-xl text-blue-500 ">#}
+{#                    随着社会的发展，父母越来越重视孩子在婴幼儿时期的成长发育，在照看婴儿方面需要投入更多的时间和精力，在现代社会快节奏的生活工作压力下往往会感到力不从心。而且对于婴儿来说，由于还未形成语言传达需求的能力，婴儿通常只能通过哭闹来向人们传达信息。因此有效辨别婴儿啼哭声声波携带的信息，将婴儿啼哭声“翻译”成“成人语言”，让我们能够读懂啼哭声的含义，具有重大的实际意义。只有读懂婴儿向我们传递的信息，婴儿的身体状况才能被确定，婴儿的需求才能够得到满足。</p>#}
+{#                <p class="grp-padding text-xl text-blue-500">#}
+{#                    目前，很多医院对婴儿的监护仍需人工来完成，啼哭的解读主要依赖于看护人员的经验。市面上也有很多类似育婴箱的智能监护产品，但具有婴儿啼哭声识别功能的较少且识别精度不高。为了解决该问题，本项目采用LSTM时间序列模型实现对婴儿啼哭声的准确识别分析。#}
+{#                </p></div>#}
+{#            <image class="w-96" src="{% static "explain1.png" %}"></image>#}
+{#        </div>#}
+{#        <img src="{% static "explain.png" %}" alt=""/>#}
+
+    </article>
+{% endblock %}

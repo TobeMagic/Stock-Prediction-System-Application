@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>signup</title>
+    <!-- Tailwind -->
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+      <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+<style>
+     @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+     .font-family-karla {
+         font-family: karla;
+     }
+     .forgetpassword{
+      text-decoration: underline;
+     }
+
+</style>
+
+  <body class="bg-white font-family-karla h-screen">
+{% load i18n %}
+{% load widget_tweaks %}
+
+
+<div class="w-full flex flex-wrap">
+<!-- Image Section -->
+  <div class="w-1/2 shadow-2xl">
+    <img class="object-cover w-full h-screen hidden md:block" src="https://event.kgi.com.tw/news/event/how-to-invest-in-stocks-for-beginners/images/kv.png">
+</div>
+<!-- Login Section -->
+<div class="w-full md:w-1/2 flex flex-col">
+
+
+  <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
+    <a href="#" class="bg-black text-white font-bold text-xl p-4">股票预测系统</a>
+</div>
+
+	<div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
+		<p class="text-center text-3xl">{% trans "Sing up" %}.</p>
+		<form class="flex flex-col pt-3 md:pt-8"  id="signup_form" method="post" action="{% url 'account_signup' %}">
+			{% csrf_token %}
+
+			<div class="flex flex-col pt-4">
+				<label for="username" class="text-lg">Username</label>
+				{% render_field form.username class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" placeholder=form.username.label id="username" %}
+				<!-- <input type="email" id="account" placeholder="your@email.com or username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"> -->
+      		</div>
+			<div class="flex flex-col pt-4">
+				<label for="email" class="text-lg">email</label>
+				{% render_field form.email class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" placeholder=form.email.label id="email" %}
+				<!-- <input type="email" id="account" placeholder="your@email.com or username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"> -->
+			</div>
+			 <div class="flex flex-col pt-4">
+				<label for="password1" class="text-lg">password1</label>
+				{% render_field form.password1 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" placeholder=form.password1.label id="password1" %}
+				<!-- <input type="email" id="account" placeholder="your@email.com or username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"> -->
+			</div>
+			 <div class="flex flex-col pt-4">
+				<label for="password2" class="text-lg">Password2</label>
+				{% render_field form.password2 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" placeholder=form.password2.label id="password2" %}
+				<!-- <input type="email" id="account" placeholder="your@email.com or username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"> -->
+			</div>
+        {{ form.errors }}
+<!--&ndash;&gt;.as_text|cut:"__all__"|cut:"*"-->
+           {% if redirect_field_value %}
+			<input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+			{% endif %}
+			<button class="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8" type="submit">Sign Up
+			</button>
+		</form>
+		<div class="text-center pt-12 pb-12">
+			<p>Already have an account? Then please <a href="{{ login_url }}" class="underline font-semibold">Sign in.</a></p>
+		</div>
+	</div>
+</div>
+
+
+</div>
+
+
+</body>
+</html>
